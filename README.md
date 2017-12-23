@@ -25,3 +25,23 @@ npm run dev
 ```
 npm run reset-db
 ```
+Найденные ошибки и ход мыслей:
+Пробежался по структуре всего клиент-серверного приложения.
+
+1. models/index.js:7 неверное количество аргументов, добавлен null (сверил документацию Sequelize c кодом)
+2. models/index.js:11 добавлен отступ
+3. index.js:14  неверный адрес , меняем graphgl на graphql
+4. create-mock-data.js:69,70 Дата старта позже даты конца, меняем местами (может не являться ошибкой)
+
+Теперь хотя-бы запустилось.
+
+Далее идем с начала index.js, доходим до graphql/typeDefs.js:
+5. graphql/typeDefs.js:8 - убераем ! в avatarUrl:String! Это поле не должно быть non-nullable
+6. graphql/typeDefs.js:14 - в UserInput не хватает avatarUrl:String, добавляем
+Тут вроде все.
+
+Далее в graphql/resolvers/query:
+7. graphql/resolvers/query.js:4,10,16 - добавлены отступы
+8. graphql/resolvers/query.js:8 - нет переменной arguments, заменяем на args
+
+Начинаем тестить в http://localhost:3000/graphql/
