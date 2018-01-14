@@ -50,7 +50,7 @@ module.exports = {
               .then(() => event));
   },
 
-  addUserToEvent (root, {id, userId}, context){
+  addUserToEvent (root, {id, userId}, context){//добавлена функция addUserToEvent
     return models.Event.findById(id)
             .then(event => event.addUser(userId)
               .then(() => event));

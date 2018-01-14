@@ -16,7 +16,12 @@ function createData () {
       login: 'yeti-or',
       avatarUrl: 'https://avatars0.githubusercontent.com/u/1813468?s=460&v=4',
       homeFloor: 2
-    }
+    },
+    {
+      login: 'slup',
+      avatarUrl: 'https://avatars3.githubusercontent.com/u/26802627?s=460&v=4',
+      homeFloor: 7
+    },
   ]);
 
   let roomsPromise = models.Room.bulkCreate([
@@ -38,39 +43,54 @@ function createData () {
     {
       title: 'Ствола',
       capacity: 2,
-      floor: 2
+      floor: 5
     },
     {
       title: '14',
       capacity: 6,
-      floor: 3
-    }
+      floor: 7
+    },
+    {
+      title: 'Ржавый Фред',
+      capacity: 6,
+      floor: 7
+    },
+    {
+      title: 'Джокер',
+      capacity: 6,
+      floor: 6
+    },
+
   ]);
 
   const HOUR = 60 * 60 * 1000;
   let now = new Date();
+  now.setHours(12);
+  now.setMinutes(30);
   let oneHourLater = new Date(now.getTime() + HOUR);
   let twoHoursLater = new Date(oneHourLater.getTime() + HOUR);
   let threeHoursLater = new Date(twoHoursLater.getTime() + HOUR);
-
+  
   let eventsPromise = models.Event.bulkCreate([
     {
+      id:1,
       title: 'ШРИ 2018 - начало',
       dateStart: now,
       dateEnd: oneHourLater
     },
     {
+      id:2,
       title: '👾 Хакатон 👾',
       dateStart: oneHourLater,
       dateEnd: twoHoursLater
     },
     {
+      id:3,
       title: '🍨 Пробуем kefir.js',
       dateStart: twoHoursLater,
       dateEnd: threeHoursLater
     }
   ]);
-
   Promise.all([usersPromise, roomsPromise, eventsPromise])
     .then(() => Promise.all([
       models.User.findAll(),
@@ -79,7 +99,7 @@ function createData () {
     ]))
     .then(function ([users, rooms, events]) {
       let promises = [];
-      promises.push(events[0].setRoom(rooms[0]));
+      promises.push(events[0].setRoom(rooms[3]));
       promises.push(events[1].setRoom(rooms[1]));
       promises.push(events[2].setRoom(rooms[2]));
 

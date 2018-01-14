@@ -48,20 +48,19 @@ npm run reset-db
 8. graphql/resolvers/query.js:8 - нет переменной arguments, заменяем на args  
 
 Начинаем тестить в http://localhost:3000/graphql/  
-Все query работают, однако rooms показывает комнаты, начиная с id:2 (возмножно не является ошибкой, и в этом есть какой-то смысл), поэтому:  
-9. graphql/resolvers/query.js:20 - убрал "offset:1"  
-
-А вот  mutation - createEvent, не задает параметры room и users, да и изначально в любом Event они равны null, что явно говорит об ошибке. После изнурительных поисков:  
-10.  graphql/resolves/index:14, 17 - добавил return  
-11.  graphql/resolves/mutation.js:42 - убрана лишняя пустая строка  
+Все query работают ,а вот  mutation - createEvent, не задает параметры room и users, да и изначально в любом Event они равны null, что явно говорит об ошибке. После изнурительных поисков:  
+9.  graphql/resolves/index:14, 17 - добавил return  
+10.  graphql/resolves/mutation.js:42 - убрана лишняя пустая строка  
 
 Теперь createEvent работает, продолжим тесты.   
 addUserToEvent вообще нет в mutation.js, добавим  
 
-12. graphql/resolves/mutation.js:63 - добавлена функция addUserToEvent.  
+11. graphql/resolves/mutation.js:53 - добавлена функция addUserToEvent.  
 
 Продолжим, в changeEventRoom отсутсвет return event, так-же такой вариант может быть нестабильным, добавим другой для всех в том числе и для changeEventRoom (см. mutation.js)  
-13. graphql/resolves/mutation.js - меняем конструкцию функций (см. mutation.js)  
+12. graphql/resolves/mutation.js - меняем конструкцию функций (см. mutation.js)  
 
 Так-же changeEventRoom некорректно устанавливает значение room:  
-14.  graphql/resolves/mutation.js:63 - заменяем id на userId  
+13.  graphql/resolves/mutation.js:63 - заменяем id на roomId  
+
+Так-же для третьего задания немного изменены данные в create-mock-data.js
