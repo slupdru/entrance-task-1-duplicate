@@ -18,9 +18,14 @@ function createData () {
       homeFloor: 2
     },
     {
-      login: 'slup',
-      avatarUrl: 'https://avatars3.githubusercontent.com/u/26802627?s=460&v=4',
+      login: 'batman',
+      avatarUrl: 'https://d30y9cdsu7xlg0.cloudfront.net/png/157453-200.png',
       homeFloor: 7
+    },
+    {
+      login: 'lex-luthor',
+      avatarUrl: 'https://i.pinimg.com/736x/d4/99/3e/d4993e398ecb4b4944292c46966fac80--lex-luthor-superman-the-creation.jpg',
+      homeFloor: 5
     },
   ]);
 
