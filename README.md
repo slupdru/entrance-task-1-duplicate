@@ -57,7 +57,6 @@ addUserToEvent вообще нет в mutation.js, добавим
 
 11. graphql/resolves/mutation.js:53 - добавлена функция addUserToEvent.  
 
-<<<<<<< HEAD
 Продолжим, в changeEventRoom отсутсвет return event, так-же такой вариант может быть нестабильным, добавим другой для всех в том числе и для changeEventRoom (см. mutation.js)  
 12. graphql/resolves/mutation.js - меняем конструкцию функций (см. mutation.js)  
 
@@ -65,10 +64,3 @@ addUserToEvent вообще нет в mutation.js, добавим
 13.  graphql/resolves/mutation.js:63 - заменяем id на roomId  
 
 Так-же для третьего задания немного изменены данные в create-mock-data.js
-=======
-Продолжим, в changeEventRoom отсутсвет return event, также такой вариант может быть нестабильным, добавим другой для всех, в том числе и для changeEventRoom (см. mutation.js)  
-13. graphql/resolves/mutation.js - меняем конструкцию функций (см. mutation.js)  
-
-Так-же changeEventRoom некорректно устанавливает значение room:  
-14.  graphql/resolves/mutation.js:63 - заменяем id на userId  
->>>>>>> d5f3c371d292581a7679571b2736a4d16ea82576
