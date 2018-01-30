@@ -66,5 +66,7 @@ addUserToEvent вообще нет в mutation.js, добавим
 Так-же для третьего задания немного изменены данные в create-mock-data.js  
 
 ## Тесты:  
-Для тестов использовался jest. Тесты находятся в public/scripts.
+Для тестов использовался jest. Тесты находятся в public/scripts.  
+```
 npm  test
+```
